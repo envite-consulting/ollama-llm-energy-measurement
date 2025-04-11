@@ -1,0 +1,28 @@
+name: Energy Measurement Ollama
+author: envite Consulting GmbH <ruessmann|wittrowski|kepes@envite.de>
+description: usage_scenario for Energy Measurement Ollama
+
+compose-file: !include docker-compose.yaml
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"  # Standard-Port für Ollama API
+    volumes:
+      - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
+    restart: unless-stopped
+    setup-commands:
+      - sleep 20
+      - |
+          curl http://ollama:11434/api/pull -d '{ "model": "llama3.2:1b" }'
+
+flow:
+    - name: run Experiment
+      commands:
+      - type: console
+        command: |
+          curl http://ollama:11434/api/generate -d '{  "model": "llama3.2:1b",  "prompt":"Why is the sky blue?"}'
+        log-stdout: true
+        log-stderr: true
