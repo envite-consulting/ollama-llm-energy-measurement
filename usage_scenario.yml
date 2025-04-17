@@ -10,19 +10,28 @@ services:
     container_name: ollama
     ports:
       - "11434:11434"  # Standard-Port für Ollama API
-    volumes:
-      - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
+    #volumes:
+    #  - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
     restart: unless-stopped
-    setup-commands:
-      - sleep 20
-      - |
-          curl http://ollama:11434/api/pull -d '{ "model": "llama3.2:1b" }'
+    
+  curl:
+    container_name: curl
+    image: curlimages/curl:8.1.0
+    command: sh
 
 flow:
     - name: run Experiment
+      container: curl
       commands:
       - type: console
         command: |
-          curl http://ollama:11434/api/generate -d '{  "model": "llama3.2:1b",  "prompt":"Why is the sky blue?"}'
+          curl -s ollama:11434/api/pull -d '{ \"model\": \"llama3.2:1b\" }'
+        note: Get Model
+        log-stdout: true
+        log-stderr: true
+      - type: console
+        command: |
+          curl -s ollama:11434/api/generate -d '{  "model": "llama3.2:1b",  "prompt":"Why is the sky blue?"}'
+        note: Send Prompt
         log-stdout: true
         log-stderr: true

@@ -6,9 +6,9 @@ services:
     container_name: ollama
     ports:
       - "11434:11434"  # Standard-Port für Ollama API
-    volumes:
-      - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
+    #volumes:
+    #  - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
     restart: unless-stopped
 
-volumes:
-  ollama_data:
+#volumes:
+#  ollama_data:
