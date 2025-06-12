@@ -2,36 +2,74 @@ name: Energy Measurement Ollama
 author: envite Consulting GmbH <ruessmann|wittrowski|kepes@envite.de>
 description: usage_scenario for Energy Measurement Ollama
 
-compose-file: !include docker-compose.yml
+compose-file: !include compose.yml
 
 services:
-  ollama:
-    image: ollama/ollama
-    container_name: ollama
-    ports:
-      - "11434:11434"  # Standard-Port für Ollama API
-    #volumes:
-    #  - ollama_data:/root/.ollama  # Speichert Modelle & Daten persistent
-    restart: unless-stopped
-    
-  curl:
-    container_name: curl
-    image: curlimages/curl:8.1.0
-    command: sh
+  gcb-ai-model:
+    docker-run-args:
+      - --gpus=all
 
 flow:
-    - name: run Experiment
-      container: curl
-      commands:
+  - name: Download gemma3-1b
+    container: gcb-ai-model
+    commands:
       - type: console
-        command: |
-          curl -s ollama:11434/api/pull -d '{ \"model\": \"llama3.2:1b\" }'
-        note: Get Model
+        command: ollama pull gemma3:1b
+        read-notes-stdout: true
         log-stdout: true
-        log-stderr: true
+
+  - name: Load gemma3-1b into memory
+    container: gcb-ai-model
+    commands:
       - type: console
-        command: |
-          curl -s ollama:11434/api/generate -d '{  "model": "llama3.2:1b",  "prompt":"Why is the sky blue?"}'
-        note: Send Prompt
+        command: ollama run gemma3:1b ""
+        read-notes-stdout: true
         log-stdout: true
-        log-stderr: true
+
+  - name: Run test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run second test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run binary classification prompt
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Classify the following email as either 'spam' or 'not spam':Hi, we are offering you a once-in-a-lifetime deal on insurance policies! Click here to claim your free quote."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run multiple classification prompt
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Classify the following email into one of the categories:'Work', 'Personal', 'Advertisement', 'Newsletter', or 'Phishing':Hi John, just a reminder that your team meeting has been moved to 2 PM tomorrow. Please confirm your availability."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Write a professional email to your manager explaining that you will be working remotely tomorrow due to a family emergency. Apologize for the inconvenience and offer to be available for calls."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly four sentences."
+        read-notes-stdout: true
+        log-stdout: true
