@@ -2,7 +2,7 @@ name: Energy Measurement Ollama
 author: envite Consulting GmbH <ruessmann|wittrowski|kepes@envite.de>
 description: usage_scenario for Energy Measurement Ollama
 
-compose-file: !include compose.yml
+compose-file: !include docker-compose.yml
 
 services:
   gcb-ai-model:
