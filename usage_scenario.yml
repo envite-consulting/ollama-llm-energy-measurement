@@ -46,7 +46,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run gemma3:1b "Classify the following email as either 'spam' or 'not spam':Hi, we are offering you a once-in-a-lifetime deal on insurance policies! Click here to claim your free quote."
+        command: ollama run gemma3:1b "Classify the following email as either 'spam' or 'not spam'. Respond with only one word:spam or not-spam.\n\nHi, we are offering you a once-in-a-lifetime deal on insurance policies! Click here to claim your free quote."
         read-notes-stdout: true
         log-stdout: true
 
@@ -54,7 +54,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run gemma3:1b "Classify the following email into one of the categories:'Work', 'Advertisement', or 'Phishing':Hi John, just a reminder that your team meeting has been moved to 2 PM tomorrow. Please confirm your availability."
+        command: ollama run gemma3:1b "Classify the following email into one of the categories:'Work', 'Advertisement', or 'Phishing'. Respond with only one word.\n\nHi John, just a reminder that your team meeting has been moved to 2 PM tomorrow. Please confirm your availability."
         read-notes-stdout: true
         log-stdout: true
 
@@ -62,7 +62,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run gemma3:1b "Classify the following email into one of the categories:'Work', 'Personal', 'Advertisement', 'Newsletter', or 'Phishing':Hi John, just a reminder that your team meeting has been moved to 2 PM tomorrow. Please confirm your availability."
+        command: ollama run gemma3:1b "Classify the following email into one of the categories:'Work', 'Personal', 'Advertisement', 'Newsletter', or 'Phishing'. Respond with only one word.\n\nHi John, just a reminder that your team meeting has been moved to 2 PM tomorrow. Please confirm your availability."
         read-notes-stdout: true
         log-stdout: true
 
