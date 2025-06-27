@@ -10,7 +10,7 @@ services:
       - --gpus=all
 
 flow:
-  - name: Download deepseek-r1:1.5b
+  - name: Download deepseek-r1 1.5b
     container: gcb-ai-model
     commands:
       - type: console

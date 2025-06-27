@@ -10,7 +10,7 @@ services:
       - --gpus=all
 
 flow:
-  - name: Download llama3.2:3b
+  - name: Download llama3.2 3b
     container: gcb-ai-model
     commands:
       - type: console
@@ -18,7 +18,7 @@ flow:
         read-notes-stdout: true
         log-stdout: true
 
-  - name: Load gemma3-4b into memory
+  - name: Load llama3.2-3b into memory
     container: gcb-ai-model
     commands:
       - type: console

@@ -10,7 +10,7 @@ services:
       - --gpus=all
 
 flow:
-  - name: Download llama3.2:1b
+  - name: Download llama3.2 1b
     container: gcb-ai-model
     commands:
       - type: console
