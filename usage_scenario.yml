@@ -89,3 +89,19 @@ flow:
         command: ollama run gemma3:1b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 512 words."
         read-notes-stdout: true
         log-stdout: true
+  
+  - name: Run email generation prompt with length condition 1024 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 1024 words."
+        read-notes-stdout: true
+        log-stdout: true
+  
+  - name: Run email generation prompt with length condition 2056 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:1b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 2056 words."
+        read-notes-stdout: true
+        log-stdout: true
