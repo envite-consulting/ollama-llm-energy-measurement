@@ -1,0 +1,107 @@
+name: Energy Measurement Ollama
+author: envite Consulting GmbH <ruessmann|wittrowski|kepes@envite.de>
+description: usage_scenario for Energy Measurement Ollama
+
+compose-file: !include docker-compose.yml
+
+services:
+  gcb-ai-model:
+    docker-run-args:
+      - --gpus=all
+
+flow:
+  - name: Download llama3.2:3b
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama pull llama3.2:3b
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Load gemma3-4b into memory
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b ""
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run second test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 16 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 16 words."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length 32 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 32 words."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 64 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 64 words."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 128 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 128 words."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 256 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 256 words."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 512 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 512 words."
+        read-notes-stdout: true
+        log-stdout: true
+  
+  - name: Run email generation prompt with length condition 1024 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 1024 words."
+        read-notes-stdout: true
+        log-stdout: true
+  
+  - name: Run email generation prompt with length condition 2056 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run llama3.2:3b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 2056 words."
+        read-notes-stdout: true
+        log-stdout: true
