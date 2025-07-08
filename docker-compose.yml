@@ -1,0 +1,3 @@
+services:
+  gcb-ai-model:
+    image: ollama/ollama
