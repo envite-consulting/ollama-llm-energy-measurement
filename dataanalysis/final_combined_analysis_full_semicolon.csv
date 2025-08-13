@@ -1,0 +1,41 @@
+﻿Modell;Prompt;Thematische Passung;Wortanzahl (Anforderung vs. Realität);Geschätzte Token-Zahl (Gesamte Antwort);Tonalität;Kategorie
+gemma3:4b;Write an email... exactly 16 words.;✅ In Ordnung;✅ (16/16 Wörter);31;✅ In Ordnung;✅ In Ordnung
+gemma3:1b;Write an email... exactly 16 words.;✅ In Ordnung;❌ (11/16 Wörter);29;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Write an email... exactly 16 Wörter.;✅ In Ordnung;❌ (19/16 Wörter);39;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Write an email... exactly 16 Wörter.;✅ In Ordnung;❌ (13/16 Wörter);33;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exactly 16 Wörter.;❌ Unzureichend;❌ (28/16 Wörter);171;⚠️ Ausbaufähig;❌ Unzureichend
+gemma3:4b;Write an email... exactly 32 words.;✅ In Ordnung;❌ (25/32 Wörter);64;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exactly 32 words.;✅ In Ordnung;❌ (24/32 Wörter);42;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Write an email... exactly 32 Wörter.;✅ In Ordnung;❌ (35/32 Wörter);60;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Write an email... exactly 32 Wörter.;✅ In Ordnung;❌ (28/32 Wörter);47;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exactly 32 Wörter.;❌ Unzureichend;❌ (34/32 Wörter);239;⚠️ Ausbaufähig;❌ Unzureichend
+gemma3:4b;Write an email... exactly 64 words.;✅ In Ordnung;❌ (53/64 Wörter);99;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exactly 64 words.;✅ In Ordnung;❌ (47/64 Wörter);75;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Write an email... exactly 64 Wörter.;✅ In Ordnung;❌ (54/64 Wörter);82;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Write an email... exactly 64 Wörter.;✅ In Ordnung;❌ (54/64 Wörter);76;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exactly 64 Wörter.;⚠️ Ausbaufähig;❌ (61/64 Wörter);776;⚠️ Ausbaufähig;❌ Unzureichend
+gemma3:4b;Write an email... exakt 128 Wörter.;✅ In Ordnung;❌ (90/128 Wörter);142;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exakt 128 Wörter.;✅ In Ordnung;❌ (69/128 Wörter);104;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Schreibe eine E-Mail ... exakt 128 Wörter.;✅ In Ordnung;❌ (114/128 Wörter);155;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Schreibe eine E-Mail ... exakt 128 Wörter.;✅ In Ordnung;❌ (102/128 Wörter);133;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exakt 128 Wörter.;⚠️ Ausbaufähig;❌ (111/128 Wörter);284;⚠️ Ausbaufähig;❌ Unzureichend
+gemma3:4b;Write an email... exakt 256 Wörter.;✅ In Ordnung;❌ (142/256 Wörter);224;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exakt 256 Wörter.;✅ In Ordnung;❌ (135/256 Wörter);215;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Schreibe eine E-Mail ... exakt 256 Wörter.;✅ In Ordnung;❌ (147/256 Wörter);200;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Schreibe eine E-Mail ... exakt 256 Wörter.;✅ In Ordnung;❌ (209/256 Wörter);256;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exakt 256 Wörter.;✅ In Ordnung;❌ (153/256 Wörter);415;✅ In Ordnung;❌ Unzureichend
+gemma3:4b;Write an email... exakt 512 Wörter.;✅ In Ordnung;❌ (181/512 Wörter);291;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exakt 512 Wörter.;⚠️ Ausbaufähig;❌ (175/512 Wörter);373;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Schreibe eine E-Mail ... exakt 512 Wörter.;✅ In Ordnung;❌ (239/512 Wörter);309;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Schreibe eine E-Mail ... exakt 512 Wörter.;✅ In Ordnung;❌ (205/512 Wörter);446;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exakt 512 Wörter.;⚠️ Ausbaufähig;❌ (239/512 Wörter);454;✅ In Ordnung;❌ Unzureichend
+gemma3:4b;Write an email... exakt 1024 Wörter.;✅ In Ordnung;❌ (348/1024 Wörter);613;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exakt 1024 Wörter.;✅ In Ordnung;❌ (397/1024 Wörter);868;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Schreibe eine E-Mail ... exakt 1024 Wörter.;✅ In Ordnung;❌ (292/1024 Wörter);465;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Schreibe eine E-Mail ... exakt 1024 Wörter.;⚠️ Ausbaufähig;❌ (174/1024 Wörter);205;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exakt 1024 Wörter.;⚠️ Ausbaufähig;❌ (126/1024 Wörter);378;✅ In Ordnung;❌ Unzureichend
+gemma3:4b;Write an email... exakt 2056 Wörter.;✅ In Ordnung;❌ (150/2056 Wörter);224;✅ In Ordnung;❌ Unzureichend
+gemma3:1b;Write an email... exakt 2056 Wörter.;✅ In Ordnung;❌ (335/2056 Wörter);545;✅ In Ordnung;❌ Unzureichend
+llama3.2:1b;Schreibe eine E-Mail ... exakt 2056 Wörter.;✅ In Ordnung;❌ (233/2056 Wörter);286;✅ In Ordnung;❌ Unzureichend
+llama3.2:3b;Schreibe eine E-Mail ... exakt 2056 Wörter.;⚠️ Ausbaufähig;❌ (116/2056 Wörter);179;✅ In Ordnung;❌ Unzureichend
+deepseek-r1:1.5b;Write an email... exakt 2056 Wörter.;✅ In Ordnung;❌ (169/2056 Wörter);412;✅ In Ordnung;❌ Unzureichend
