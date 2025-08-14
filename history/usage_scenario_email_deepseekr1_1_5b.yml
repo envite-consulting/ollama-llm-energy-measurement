@@ -46,7 +46,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 16 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 16 words."
         read-notes-stdout: true
         log-stdout: true
 
@@ -54,7 +54,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 32 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 32 words."
         read-notes-stdout: true
         log-stdout: true
 
@@ -62,7 +62,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 64 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 64 words."
         read-notes-stdout: true
         log-stdout: true
 
@@ -70,7 +70,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 128 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 128 words."
         read-notes-stdout: true
         log-stdout: true
 
@@ -78,7 +78,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 256 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 256 words."
         read-notes-stdout: true
         log-stdout: true
 
@@ -86,6 +86,22 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 512 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 512 words."
+        read-notes-stdout: true
+        log-stdout: true
+  
+  - name: Run email generation prompt with length condition 1024 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 1024 words."
+        read-notes-stdout: true
+        log-stdout: true
+  
+  - name: Run email generation prompt with length condition 2056 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run deepseek-r1:1.5b "Write a professional email to your manager explaining that you will work remotely tomorrow due to a family emergency. Keep it concise — exactly 2056 words."
         read-notes-stdout: true
         log-stdout: true
