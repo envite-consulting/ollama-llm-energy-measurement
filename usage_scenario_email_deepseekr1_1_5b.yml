@@ -23,24 +23,24 @@ flow:
     commands:
       - type: console
         command: ollama run deepseek-r1:1.5b ""
-        read-notes-stdout: true
-        log-stdout: true
+        read-notes-stdout: false
+        log-stdout: false
 
   - name: Run test run
     container: gcb-ai-model
     commands:
       - type: console
         command: ollama run deepseek-r1:1.5b "Tell me a long joke?"
-        read-notes-stdout: true
-        log-stdout: true
+        read-notes-stdout: false
+        log-stdout: false
 
   - name: Run second test run
     container: gcb-ai-model
     commands:
       - type: console
         command: ollama run deepseek-r1:1.5b "Tell me a long joke?"
-        read-notes-stdout: true
-        log-stdout: true
+        read-notes-stdout: false
+        log-stdout: false
 
   - name: Run email generation prompt with length condition 16 words
     container: gcb-ai-model
@@ -54,7 +54,7 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run deepseek-r1:1.5b Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 32 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        command: ollama run deepseek-r1:1.5b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 32 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
         read-notes-stdout: true
         log-stdout: true
 
