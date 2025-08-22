@@ -1,0 +1,91 @@
+name: Energy Measurement Ollama
+author: envite Consulting GmbH <ruessmann|wittrowski|kepes@envite.de>
+description: usage_scenario for Energy Measurement Ollama
+
+compose-file: !include docker-compose.yml
+
+services:
+  gcb-ai-model:
+    docker-run-args:
+      - --gpus=all
+
+flow:
+  - name: Download gemma3-270m
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama pull gemma3:270m
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Load gemma3-270m into memory
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m ""
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run second test run
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Tell me a long joke?"
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 16 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 16 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length 32 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 32 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 64 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 64 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 128 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 128 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 256 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 256 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
+
+  - name: Run email generation prompt with length condition 512 words
+    container: gcb-ai-model
+    commands:
+      - type: console
+        command: ollama run gemma3:270m "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 512 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."
+        read-notes-stdout: true
+        log-stdout: true
