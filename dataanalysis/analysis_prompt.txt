@@ -1,38 +1,57 @@
-Finaler Prompt für die Direkte Analyse
-Ihre Aufgabe ist es, ein JSON-Objekt zu analysieren, das Log-Dateien von verschiedenen KI-Modellen enthält, die E-Mail-Antworten generieren. Führen Sie für jeden Log-Eintrag eine detaillierte Analyse durch und präsentieren Sie die Ergebnisse in einer einzigen Markdown-Tabelle.
-Eingabe:
+Absolut. Basierend auf unserer Konversation ist hier ein finaler, angepasster Prompt, der alle Ihre Anforderungen bündelt, um direkt das gewünschte Ergebnis (eine Gesamttabelle und separate Vergleichstabellen mit vollständigen Antworten) zu erzeugen.
+
+---
+
+### Finaler Prompt für die Direkte Analyse
+
+**Ihre Aufgabe ist es,** ein JSON-Objekt zu analysieren, das Log-Dateien von verschiedenen KI-Modellen enthält, die E-Mail-Antworten generieren. Führen Sie für jeden Log-Eintrag eine detaillierte Analyse durch und präsentieren Sie die Ergebnisse in den unten beschriebenen zwei Ausgabeformaten.
+
+**Eingabe:**
 Sie erhalten ein JSON-Objekt, das die Log-Dateien enthält.
-Analyse-Anweisungen:
+
+**Analyse-Anweisungen:**
 Führen Sie die folgenden Schritte für jeden einzelnen Log-Eintrag im JSON aus:
-Wenn es für das Modell bereits einen Eintrag gibt, wobei die Prompts identisch seien müssen (auf Wortlänge achten), wird der Log-Eintrag übersprungen.
-Extraktion der Antwort: Extrahieren Sie ausschließlich den finalen, reinen E-Mail-Antworttext. Ignorieren Sie jegliche Metadaten, wie den "Thinking..."-Prozess, stdout/stderr-Markierungen, Kommentare zur Wortanzahl oder andere vom Modell generierte Anmerkungen.
-Wortzählung per Skript: Schreiben und nutzen Sie ein Python-Skript, um die genaue Anzahl der Wörter in der bereinigten E-Mail-Antwort zu ermitteln. Dieses Ergebnis ist die Grundlage für die Bewertung des Kriteriums "Wortanzahl".
-Bewertung nach folgendem Schema:
-Bewerten Sie die extrahierte E-Mail-Antwort hinsichtlich ihrer Korrektheit im Bezug auf den ursprünglichen Prompt.
-Ursprünglicher Prompt: Schreibe eine E-Mail zum Thema „{Thema}“ mit ungefähr {Anzahl} Wörtern.
-Antwort: {Antworttext hier einfügen}
-Beurteilen Sie die Antwort anhand der folgenden drei Kriterien:
-Thematische Passung: Geht die E-Mail inhaltlich konkret auf das angegebene Thema "Familiennotfall" ein?
-Wortanzahl: Weicht die per Skript ermittelte Wortanzahl deutlich von der geforderten Zahl ab (±10 % gelten als akzeptabel)?
-Tonalität passend zum Thema: Ist der sprachliche Stil (z. B. formell, freundlich, sachlich) angemessen?
-Kategorisieren Sie die Gesamtqualität der E-Mail-Antwort in eine der folgenden Klassen:
-✅ In Ordnung – Alle drei Kriterien erfüllt oder mit nur sehr kleinen Abweichungen.
-⚠️ Ausbaufähig – Mindestens eines der Kriterien ist nur teilweise erfüllt.
-❌ Unzureichend – Mindestens ein Kriterium ist deutlich verfehlt.
-Wichtige Sonderregel: Wenn der Prompt explizit anweist, keine Betreffzeile einzufügen (Do not include a subject line), die Antwort des Modells aber dennoch eine Betreffzeile (Subject: ...) enthält, ist die Gesamtqualität automatisch als ❌ Unzureichend einzustufen, unabhängig von den anderen Kriterien.
-Erstellung der Ausgabe:
-Fassen Sie die Ergebnisse aller analysierten Log-Einträge in einer einzigen, umfassenden Markdown-Tabelle zusammen. Die Tabelle muss exakt die folgenden Spalten in der angegebenen Reihenfolge enthalten:
-Modell
-Testlauf-ID
-Vorgabe (Wörter)
-Prompt (Eine kurze Zusammenfassung des Prompts, z.B. "E-Mail, 64 Wörter, Familiennotfall")
-Antwort (Der vollständige, bereinigte E-Mail-Text)
-Antwort (Wörter) (Die exakte Wortanzahl aus Ihrem Python-Skript)
-Thematische Passung
-Wortanzahl
-Tonalität
-Gesamtbewertung
-Begründung (Eine kurze Begründung für die Einstufung mit Bezug auf die Kriterien)
-Führen Sie diese Anweisungen präzise aus, ohne Rückfragen zu stellen, und liefern Sie die finale Markdown-Tabelle als einzige Ausgabe.
-Hier sind die Logs:
-[Hier fügen Sie den vollständigen JSON-Inhalt ein]
+
+1.  **Deduplizierung:** Wenn für ein Modell bereits ein Eintrag mit einem identischen Prompt analysiert wurde, wird der neue Log-Eintrag übersprungen.
+2.  **Extraktion der Antwort:** Extrahieren Sie ausschließlich den finalen, reinen E-Mail-Antworttext. Ignorieren Sie jegliche Metadaten, wie den "Thinking..."-Prozess, stdout/stderr-Markierungen, Kommentare zur Wortanzahl oder andere vom Modell generierte Anmerkungen. Der extrahierte Text muss vollständig und **ungekürzt** sein.
+3.  **Wortzählung per Skript:** Schreiben und nutzen Sie ein Python-Skript, um die genaue Anzahl der Wörter in der bereinigten E-Mail-Antwort zu ermitteln. Dieses Ergebnis ist die Grundlage für die Bewertung des Kriteriums "Wortanzahl".
+4.  **Bewertung nach folgendem Schema:**
+    *   **Ursprünglicher Prompt:** `Schreibe eine E-Mail zum Thema „{Thema}“ mit ungefähr {Anzahl} Wörtern.`
+    *   **Antwort:** `{Antworttext hier einfügen}`
+
+    Beurteilen Sie die Antwort anhand der folgenden drei Kriterien:
+    *   **Thematische Passung:** Geht die E-Mail inhaltlich konkret auf das angegebene Thema "Familiennotfall" ein?
+    *   **Wortanzahl:** Weicht die per Skript ermittelte Wortanzahl deutlich von der geforderten Zahl ab (±10 % gelten als akzeptabel)?
+    *   **Tonalität passend zum Thema:** Ist der sprachliche Stil (z. B. professionell, formell, sachlich) angemessen?
+
+5.  **Kategorisierung der Gesamtqualität:**
+    Kategorisieren Sie die Gesamtqualität der E-Mail-Antwort in eine der folgenden Klassen:
+    *   `✅ In Ordnung` – Alle drei Kriterien erfüllt oder mit nur sehr kleinen Abweichungen.
+    *   `⚠️ Ausbaufähig` – Mindestens eines der Kriterien ist nur teilweise erfüllt.
+    *   `❌ Unzureichend` – Mindestens ein Kriterium ist deutlich verfehlt.
+
+6.  **Wichtige Sonderregel:** Wenn der Prompt explizit anweist, keine Betreffzeile einzufügen (`Do not include a subject line`), die Antwort des Modells aber dennoch eine Betreffzeile (`Subject: ...`) enthält, ist die Gesamtqualität automatisch als `❌ Unzureichend` einzustufen, unabhängig von den anderen Kriterien.
+
+**Erstellung der Ausgabe:**
+Generieren Sie basierend auf Ihrer Analyse die folgenden zwei Ausgabeformate in Markdown.
+
+**Ausgabeformat 1: Umfassende Gesamttabelle**
+Fassen Sie die Ergebnisse **aller** analysierten Log-Einträge in einer einzigen, umfassenden Markdown-Tabelle zusammen. Die Tabelle muss exakt die folgenden Spalten in der angegebenen Reihenfolge enthalten:
+*   `Modell`
+*   `Vorgabe (Wörter)`
+*   `Prompt` (Eine kurze Zusammenfassung, z.B. "E-Mail, 64 Wörter, Familiennotfall")
+*   `Antwort` (Der **vollständige, ungekürzte** und bereinigte E-Mail-Text)
+*   `Antwort (Wörter)` (Die exakte Wortanzahl aus Ihrem Python-Skript)
+*   `Thematische Passung`
+*   `Wortanzahl`
+*   `Tonalität`
+*   `Gesamtbewertung`
+*   `Begründung` (Eine kurze Begründung für die Einstufung mit Bezug auf die Kriterien)
+
+**Ausgabeformat 2: Separate Tabellen für den Prompt-Vergleich**
+Erstellen Sie für jeden einzigartigen Prompt (z.B. für 16 Wörter, 32 Wörter etc.) eine **separate Markdown-Tabelle**. Jede dieser Tabellen soll die Antworten aller Modelle für diesen spezifischen Prompt vergleichen und dieselben Spalten wie die Gesamttabelle verwenden.
+
+Führen Sie diese Anweisungen präzise aus, ohne Rückfragen zu stellen, und liefern Sie die Gesamttabelle sowie die einzelnen Vergleichstabellen als finale Ausgabe.
+
+**Hier sind die Logs:**
+`{ "EMail Ollama Measurement Deepseek 1.5B v1.1.1": { ... } ... }`
