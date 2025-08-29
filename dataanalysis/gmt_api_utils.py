@@ -49,3 +49,14 @@ def fetch_measurement_data(run_id, api_key):
     }
     response = requests.get(url, headers=headers)
     return response.json()
+
+def get_run_ids_by_names(name_list, dataframe, n=3):
+    """
+    Returns a dictionary mapping each name in name_list to a list of up to n Run_IDs from the dataframe
+    whose 'Name' column contains the given name (case-insensitive).
+    """
+    run_ids_dict = {}
+    for name in name_list:
+        run_ids = dataframe[dataframe['Name'].str.contains(name, case=False, na=False)]['Run_ID'].tolist()[:n]
+        run_ids_dict[name] = run_ids
+    return run_ids_dict
