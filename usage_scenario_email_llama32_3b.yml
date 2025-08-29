@@ -38,40 +38,46 @@ flow:
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 16 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >-
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 16 }' --nowordwrap
         log-stdout: true
 
   - name: Run email generation prompt with length condition 32 words
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 32 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >-
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 32 }' --nowordwrap
         log-stdout: true
 
   - name: Run email generation prompt with length condition 64 words
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 64 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >-
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 64 }' --nowordwrap
         log-stdout: true
 
   - name: Run email generation prompt with length condition 128 words
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 128 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >-
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 128 }' --nowordwrap
         log-stdout: true
 
   - name: Run email generation prompt with length condition 256 words
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 256 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >-
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 256 }' --nowordwrap
         log-stdout: true
 
   - name: Run email generation prompt with length condition 512 words
     container: gcb-ai-model
     commands:
       - type: console
-        command: ollama run llama3.2:3b "Write an email to your manager explaining that you will work remotely tomorrow due to a family emergency. The email must be exactly 512 words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone."  --nowordwrap 
+        command: >- 
+          ollama run llama3.2:3b 'Write an email request with the data provided in the following JSON for the given subject. The email must be exactly \{\{lengthInWords\}\} words, with a tolerance of ±10%. Do not include a subject line. Output only the email body, clearly stating the request in a professional tone. Here is the data. { "subject": "request to work remotely on given date", "recipient": "manager", "reason": "family emergency", "date": "2025-10-01", "lengthInWords": 512 }' --nowordwrap
         log-stdout: true
